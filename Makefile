@@ -1,23 +1,23 @@
-EXTRA_CFLAGS += $(USER_EXTRA_CFLAGS)
-EXTRA_CFLAGS += -O1
-#EXTRA_CFLAGS += -O3
-#EXTRA_CFLAGS += -Wall
-#EXTRA_CFLAGS += -Wextra
-#EXTRA_CFLAGS += -Werror
-#EXTRA_CFLAGS += -pedantic
-#EXTRA_CFLAGS += -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes
+ccflags-y += $(USER_EXTRA_CFLAGS)
+ccflags-y += -O1
+#ccflags-y += -O3
+#ccflags-y += -Wall
+#ccflags-y += -Wextra
+#ccflags-y += -Werror
+#ccflags-y += -pedantic
+#ccflags-y += -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes
 
-EXTRA_CFLAGS += -Wno-unused-variable
-EXTRA_CFLAGS += -Wno-unused-value
-EXTRA_CFLAGS += -Wno-unused-label
-EXTRA_CFLAGS += -Wno-unused-parameter
-EXTRA_CFLAGS += -Wno-unused-function
-EXTRA_CFLAGS += -Wno-unused
+ccflags-y += -Wno-unused-variable
+ccflags-y += -Wno-unused-value
+ccflags-y += -Wno-unused-label
+ccflags-y += -Wno-unused-parameter
+ccflags-y += -Wno-unused-function
+ccflags-y += -Wno-unused
 
-EXTRA_CFLAGS += -Wno-uninitialized
-EXTRA_CFLAGS += -Wno-int-to-pointer-cast
+ccflags-y += -Wno-uninitialized
+ccflags-y += -Wno-int-to-pointer-cast
 
-EXTRA_CFLAGS += -I$(src)/include
+ccflags-y += -I$(src)/include
 
 CONFIG_AUTOCFG_CP = n
 
@@ -136,48 +136,48 @@ endif
 
 
 ifeq ($(CONFIG_USB_AUTOSUSPEND), y)
-EXTRA_CFLAGS += -DCONFIG_USB_AUTOSUSPEND
+ccflags-y += -DCONFIG_USB_AUTOSUSPEND
 endif
 
 ifeq ($(CONFIG_MP_INCLUDED), y)
 #MODULE_NAME := $(MODULE_NAME)_mp
-EXTRA_CFLAGS += -DCONFIG_MP_INCLUDED
+ccflags-y += -DCONFIG_MP_INCLUDED
 endif
 
 ifeq ($(CONFIG_POWER_SAVING), y)
-EXTRA_CFLAGS += -DCONFIG_POWER_SAVING
+ccflags-y += -DCONFIG_POWER_SAVING
 endif
 
 ifeq ($(CONFIG_HW_PWRP_DETECTION), y)
-EXTRA_CFLAGS += -DCONFIG_HW_PWRP_DETECTION
+ccflags-y += -DCONFIG_HW_PWRP_DETECTION
 endif
 
 ifeq ($(CONFIG_WIFI_TEST), y)
-EXTRA_CFLAGS += -DCONFIG_WIFI_TEST
+ccflags-y += -DCONFIG_WIFI_TEST
 endif
 
 ifeq ($(CONFIG_BT_COEXIST), y)
-EXTRA_CFLAGS += -DCONFIG_BT_COEXIST
+ccflags-y += -DCONFIG_BT_COEXIST
 endif
 
 ifeq ($(CONFIG_INTEL_WIDI), y)
-EXTRA_CFLAGS += -DCONFIG_INTEL_WIDI
+ccflags-y += -DCONFIG_INTEL_WIDI
 endif
 
 ifeq ($(CONFIG_WAPI_SUPPORT), y)
-EXTRA_CFLAGS += -DCONFIG_WAPI_SUPPORT
+ccflags-y += -DCONFIG_WAPI_SUPPORT
 endif
 
 ifeq ($(CONFIG_EFUSE_CONFIG_FILE), y)
-EXTRA_CFLAGS += -DCONFIG_EFUSE_CONFIG_FILE
+ccflags-y += -DCONFIG_EFUSE_CONFIG_FILE
 endif
 
 ifeq ($(CONFIG_EXT_CLK), y)
-EXTRA_CFLAGS += -DCONFIG_EXT_CLK
+ccflags-y += -DCONFIG_EXT_CLK
 endif
 
 ifeq ($(CONFIG_FTP_PROTECT), y)
-EXTRA_CFLAGS += -DCONFIG_FTP_PROTECT
+ccflags-y += -DCONFIG_FTP_PROTECT
 endif
 
 SUBARCH := $(shell uname -m | sed -e s/i.86/i386/)

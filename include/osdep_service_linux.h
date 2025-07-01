@@ -102,6 +102,13 @@
 #endif
 	typedef struct timer_list _timer;
 
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 15, 0))
+static inline int del_timer_sync(_timer *timer)
+{
+	return timer_delete_sync(timer);
+}
+#endif
+
 	struct	__queue	{
 		struct	list_head	queue;
 		_lock	lock;
