@@ -86,6 +86,10 @@
 	#include <linux/usb/ch9.h>
 #endif
 
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(6,16,0))
+#define from_timer	timer_container_of
+#endif
+
 	typedef struct urb *  PURB;
 #if (LINUX_VERSION_CODE>=KERNEL_VERSION(2,6,22))
 #ifdef CONFIG_USB_SUSPEND
